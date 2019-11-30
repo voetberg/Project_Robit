@@ -10,3 +10,8 @@ class TestCards(TestCase):
 
     def test_use_card(self):
         pass
+
+    def test_apply_affect(self):
+        pass
+
+    def test_

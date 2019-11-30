@@ -17,5 +17,9 @@ class Player:
         self.position[1] += y_pos
         self.position[2] += screen
 
-    def add_item(self,item):
-        self.inventory[-1] = item
+    def access_inventory(self,item,action):
+        if action == "add":
+            self.inventory[item.key] = item
+        if action == "remove":
+            self.inventory.pop(item.key)
+

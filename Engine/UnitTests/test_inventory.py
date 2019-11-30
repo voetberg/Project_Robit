@@ -1,5 +1,5 @@
 from unittest import TestCase
-from project_robit.Engine.inventory import Inventory
+from project_robit.Engine.inventory_system import Inventory
 
 
 class TestInventory(TestCase):

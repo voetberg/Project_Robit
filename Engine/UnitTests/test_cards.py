@@ -8,10 +8,14 @@ class TestCards(TestCase):
     def test_make_deck(self):
         pass
 
+    def test_draw_hand(self):
+        pass
+
     def test_use_card(self):
         pass
 
-    def test_apply_affect(self):
+    def test_discard_hand(self):
         pass
 
-    def test_
+    def test_get_card_disciption(self):
+        pass

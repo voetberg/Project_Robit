@@ -7,13 +7,16 @@ class TestInventory(TestCase):
         self.inventory = Inventory
 
     def test_add_item(self):
-        pass
+        self.inventory.add_item(inventory)
 
     def test_remove_item(self):
         pass
 
-    def test_read_possible_inventory_list(self):
+    def test_exceed_inventory_space(self):
         pass
 
-    def test_use_item(self):
+    def test_display_all_names(self):
+        pass
+
+    def test_give_item_discription(self):
         pass

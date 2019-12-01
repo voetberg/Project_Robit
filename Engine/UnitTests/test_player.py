@@ -17,21 +17,6 @@ class TestPlayer(TestCase):
         self.joker.use_money(-7)
         self.assertEqual(5,self.joker.money)
 
-    def test_gain_suit(self):
-        self.joker.gain_suit()
-        expected = {}
-        self.assertEqual(expected, self.joker.suits)
-
-    def test_loose_suit(self):
-        self.joker.lose_suit()
-        expected = {}
-        self.assertEqual(expected,self.joker.suits)
-
-    def test_loose_nonexistant_suit(self):
-        expected = self.joker.suits
-        self.joker.lose_suit()
-        self.assertEqual(expected,self.joker.suits)
-
     def test_gain_inventory_item(self):
         expected = {}
         self.joker.access_inventory("placeholder_item", action='add')
@@ -47,6 +32,10 @@ class TestPlayer(TestCase):
         self.joker.access_inventory("Not_An_Item",action='remove')
         self.assertEqual(expected,self.joker.inventory)
 
+    def test_save(self):
+        pass
 
     #TODO Write movement cases
+
+
 

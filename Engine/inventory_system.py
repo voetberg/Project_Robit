@@ -8,7 +8,7 @@ class Inventory:
     def remove_item(self):
         pass
 
-    def read_possible_items(self):
+    def display_items(self):
         pass
 
     def use_item(self):

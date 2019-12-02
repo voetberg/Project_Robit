@@ -34,6 +34,6 @@ class TestInventory(TestCase):
     def test_give_item_stats(self):
         self.inventory.add_item("trash")
         expected = [{
-            
+
         }]
         self.assertEqual(expected,self.inventory.item_stats)

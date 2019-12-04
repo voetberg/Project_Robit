@@ -3,7 +3,7 @@ from .resource_accessor import ResourceAccessor
 
 class Cards:
     def __init__(self,suit):
-        resources = ResourceAccessor("cards")
+        resources = ResourceAccessor(None,"StandardDeck")
         self.deck = resources[suit]
 
     def get_card(self,card_number):
@@ -15,6 +15,7 @@ class Cards:
 
 class Card:
     def __init__(self,card):
+        self.description = card["description"]
         self.attack = card['attack']
         self.heal = card['heal']
         self.defense_buff = card['defense_buff']

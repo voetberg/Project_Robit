@@ -5,14 +5,14 @@
     ** Powers of each character should relate to an archetypical rpg character
 * Cards are exhusted once used, need to be replaced (Rate should be deterimed with time)
 * Joker is the player character, tactician type
-        ** IS NOT A CLOWN
-        ** It's my game and I can make an explicitly mute protag
-        ** Will have one hp that will be lost if all suits are lost
+        * IS NOT A CLOWN
+        * It's my game and I can make an explicitly mute protag
+        * Will have one hp that will be lost if all suits are lost
 
 ##### Enemies and Battles
 * Enemies should also run on a card/game based system
-    ** Different classes of enemies use different games -> Should only use one suit unless a boss
-    ** Would have to be a shadow of col style for each enemy to be it's own game
+    * Different classes of enemies use different games -> Should only use one suit unless a boss
+    * Would have to be a shadow of col style for each enemy to be it's own game
 * Bosses are clearly designs to be other player characters (Think Pyre)
 * Battles consist of enemy and player playing hands symotanously, and deciding order to play the hand
 * Each party member has its own hp pool, select which enemy to play a card against

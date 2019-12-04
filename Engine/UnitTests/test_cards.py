@@ -4,6 +4,7 @@ from unittest import TestCase
 class TestCards(TestCase):
     def setUp(self):
         self.deck = Cards("stars")
+        self.card = self.deck.get_card(0)
 
     def test_make_deck(self):
         expected = {}
@@ -14,21 +15,20 @@ class TestCards(TestCase):
         expected = {
 
         }
-        card = self.deck[0]
-        self.assertEqual(expected,card)
+        self.assertEqual(expected,self.card)
 
     def test_get__defence_buff_effect(self):
-        self.assertEqual(1,self.deck[0].defence_buff)
+        self.assertEqual(1,self.card.defence_buff)
 
     def test_get_attack_buff_effect(self):
-        self.assertEqual(1, self.deck[0].attack_buff)
+        self.assertEqual(1, self.card.attack_buff)
 
     def test_get_attack_effect(self):
-        self.assertEqual(1,self.deck[0].attack)
+        self.assertEqual(1,self.card.attack)
 
     def test_get_heal_effect(self):
-        self.assertEqual(1,self.deck[0].heal)
+        self.assertEqual(1,self.card.heal)
 
     def remove_card_from_deck(self):
-        self.deck.drop_card[0]
+        self.deck.drop_card(0)
         self.assertEqual(12,len(self.deck))

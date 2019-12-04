@@ -58,3 +58,7 @@ class TestSuits(TestCase):
         self.user_suit.status = "dead"
         self.user_suit.revive()
         self.assertEqual(base_hp/2,self.user_suit.hp)
+
+    def test_buff_defence(self):
+        self.user_suit.buff({"defence":.5})
+        self.assertEqual(.5,self.user_suit.defence)

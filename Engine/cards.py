@@ -3,8 +3,8 @@ from .resource_accessor import ResourceAccessor
 
 class Cards:
     def __init__(self,suit):
-        resources = ResourceAccessor("StandardDeck")
-        self.deck = resources[suit]
+        resources = ResourceAccessor("StandardDeck").resource
+        self.deck = resources["cards"][suit]
 
     def get_card(self,card_number):
         return Card(self.deck[card_number])

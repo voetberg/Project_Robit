@@ -15,3 +15,5 @@ class ResourceAccessor:
             return json.load(json_file)
 
     #TODO Give access and return methods
+
+print(ResourceAccessor("StandardDeck").resource["cards"]["stars"])

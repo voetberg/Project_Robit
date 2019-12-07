@@ -1,45 +1,74 @@
 from project_robit.Engine.cards import Cards
+from project_robit.Engine.inventory_system import Inventory
 from project_robit.Engine.resource_accessor import ResourceAccessor
 
+import random
 
 class Suits:
     def __init__(self, area=False,
                  character="Character"):
-        resource = ResourceAccessor(area=area, resource="Suits").resource[character]
+        self.resource = ResourceAccessor(area=area, resource="Suits").resource[character]
 
-        suit = resource["deck"]
+        suit = self.resource["deck"]
         self.deck = Cards(suit=suit).deck
 
-        self.hp = resource["base_hp"]
-        self.hand_size = resource["hand_size"]
-        self.attack = resource["base_attack"]
-        self.defense = resource["base_attack"]
-        self.status = resource["life_status"]
+        self.hp = self.resource["base_hp"]
+        self.hand_size = self.resource["hand_size"]
+        self.attack = self.resource["base_attack"]
+        self.defense = self.resource["base_attack"]
+        self.status = self.resource["life_status"]
 
         self.hand = {}
-        self.inventory = {}
+        self.inventory = Inventory()
 
     def draw_hand(self):
-        return ""
+        ##TODO Discard hand
+        if len(self.hand) > self.hand_size:
+            self.hand = dict(random.sample(self.deck.items(), self.hand_size))
+        else:
+            self.hand = self.deck
 
     def discard_hand(self):
-        pass
+        self.hand = {}
 
-    def use_card(self,card,target):
-        pass
+    def use_card(self, card, target):
+        self.take_damage(card.attack, target)
+        self.heal(card.heal,target)
+        buff_dictionary = {
+            "defense": card.defense_buff,
+            "attack": card.attack_buff
+        }
+        self.buff(buff_dictionary,target)
+        self.deck.drop_card(card)
 
-    def use_item(self,item):
-        pass
+    def use_item(self,item,target,user):
+        self.use_card(item,target=target,user=user)
+        self.inventory.remove_item(item)
 
-    def heal(self,heal_amount):
-        pass
+    def heal(self,heal_amount,target):
+        post_heal_hp = target.hp + heal_amount
+        if target.status == "living":
+            if post_heal_hp > self.resource["base_hp"]:
+                target.hp = self.resource["base_hp"]
+            else:
+                target.hp = post_heal_hp
 
-    def take_damage(self,damage_amount):
-        pass
+    def take_damage(self,damage_amount,target):
+        ##TODO Damage Formula
+        target.hp -= damage_amount
+        if target.hp < 0:
+            target.status = "dead"
+            target.hp = 0
 
-    def buff(self,buff_amount):
-        pass
+    def buff(self,buff_dictionary,target):
+        for buff_action in buff_dictionary.items:
+            if buff_action.key() == "defense":
+                target.defense *= buff_action.value()
+            if buff_action.key() == "attack":
+                target.attack *= buff_action.value()
 
-    def revive(self):
-        pass
+    def revive(self,target):
+        if target.status == "dead":
+            target.hp = int(self.resource["base_hp"]/2)
+            target.status == "living"
 

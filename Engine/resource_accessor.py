@@ -2,11 +2,11 @@ import json
 
 # Testing coverage in the unittests of classes, this should never be indentently called
 class ResourceAccessor:
-    def __init__(self,area,resource):
+    def __init__(self,resource,area=False):
         if area:
-            location = "/project_robit/Resources/" + area + "/" + resource + ".JSON"
+            location = "../Resources/" + area + "/" + resource + ".JSON"
         else:
-            location = "project_robit/Resources/" + resource + ".JSON"
+            location = "../Resources/" + resource + ".JSON"
         self.resource = self.open_json(location)
 
     @staticmethod

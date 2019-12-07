@@ -39,7 +39,7 @@ class Suits:
             "attack": card.attack_buff
         }
         self.buff(buff_dictionary,target)
-        self.deck.drop_card(card)
+        self.deck.drop_card()
 
     def use_item(self,item,target,user):
         self.use_card(item,target=target,user=user)
@@ -52,6 +52,8 @@ class Suits:
                 target.hp = self.resource["base_hp"]
             else:
                 target.hp = post_heal_hp
+        else:
+            target.hp = 0
 
     def take_damage(self,damage_amount,target):
         ##TODO Damage Formula
@@ -61,14 +63,14 @@ class Suits:
             target.hp = 0
 
     def buff(self,buff_dictionary,target):
-        for buff_action in buff_dictionary.items:
-            if buff_action.key() == "defense":
-                target.defense *= buff_action.value()
-            if buff_action.key() == "attack":
-                target.attack *= buff_action.value()
+        for buff_action in buff_dictionary.items():
+            if buff_action[0] == "defense":
+                target.defense *= buff_action[1]
+            if buff_action[0] == "attack":
+                target.attack *= buff_action[1]
 
     def revive(self,target):
         if target.status == "dead":
             target.hp = int(self.resource["base_hp"]/2)
-            target.status == "living"
+            target.status = "living"
 

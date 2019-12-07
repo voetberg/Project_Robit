@@ -3,13 +3,16 @@ from project_robit.Engine.suits import Suits
 
 class TestSuits(TestCase):
     def setUp(self):
-        self.user_suit = Suits()
-        self.enemy_suit = Suits()
+        self.user_suit = Suits(area="Area0", character="Deuce")
+        self.enemy_suit = Suits(area="Area0", character="Deuce")
         #TODO Init should call the resource class
+
+    def test_get_hand_size(self):
+        self.assertEqual(4, self.user_suit.hand_size)
 
     def test_draw_new_hand(self):
         self.user_suit.draw_hand()
-        self.assertEqual(4, len(self.user_suit.hand))
+        self.assertEqual(self.user_suit.hand_size, len(self.user_suit.hand))
 
     def test_use_card(self):
         self.user_suit.draw_hand()
@@ -19,7 +22,7 @@ class TestSuits(TestCase):
         self.assertEqual(expected_enemy_hp, self.enemy_suit.hp)
 
     def test_use_item(self):
-        self.user_suit.use(self.user_suit.inventory[1])
+        self.user_suit.use_item(self.user_suit.inventory[1])
         self.assertEqual(len(self.user_suit.inventory)+1,len(self.user_suit.inventory))
 
     def test_discard_hand(self):
@@ -29,11 +32,11 @@ class TestSuits(TestCase):
 
     def test_take_damage(self):
         hp = self.user_suit.hp
-        self.user_suit.take_damange(1)
+        self.user_suit.take_damage(1)
         self.assertEqual(hp-1,self.user_suit.hp)
 
     def test_die(self):
-        self.user_suit.take_damange(self.user_suit.hp+1)
+        self.user_suit.take_damage(self.user_suit.hp+1)
         self.assertEqual("dead",self.user_suit.status)
 
     def test_heal(self):
@@ -61,4 +64,4 @@ class TestSuits(TestCase):
 
     def test_buff_defence(self):
         self.user_suit.buff({"defence":.5})
-        self.assertEqual(.5,self.user_suit.defence)
+        self.assertEqual(.5,self.user_suit.defense)

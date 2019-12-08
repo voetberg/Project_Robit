@@ -6,7 +6,8 @@
         "attack": 0,
         "heal": 0,
         "defense_buff": 1,
-        "attack_buff": 1
+        "attack_buff": 1,
+        "action_message": "This does nothing"
       }
     }
   }

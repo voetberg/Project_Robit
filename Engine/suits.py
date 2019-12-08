@@ -41,8 +41,8 @@ class Suits:
         self.buff(buff_dictionary,target)
         self.deck.drop_card()
 
-    def use_item(self,item,target,user):
-        self.use_card(item,target=target,user=user)
+    def use_item(self,item,target):
+        self.use_card(item,target=target)
         self.inventory.remove_item(item)
 
     def heal(self,heal_amount,target):

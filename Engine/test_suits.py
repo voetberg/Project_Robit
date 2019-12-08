@@ -16,14 +16,15 @@ class TestSuits(TestCase):
 
     def test_use_card(self):
         self.user_suit.draw_hand()
-        card_to_use = self.user_suit.hand[1]
+        card_to_use = self.user_suit.hand[0]
         expected_enemy_hp = self.enemy_suit.hp - card_to_use["damage"]
         self.user_suit.use_card(card=card_to_use, target=self.enemy_suit)
         self.assertEqual(expected_enemy_hp, self.enemy_suit.hp)
 
     def test_use_item(self):
-        self.user_suit.use_item(self.user_suit.inventory[1])
-        self.assertEqual(len(self.user_suit.inventory)+1,len(self.user_suit.inventory))
+        self.user_suit.inventory.add_item('trash')
+        self.user_suit.use_item(self.user_suit.inventory.inventory['trash'],self.user_suit)
+        self.assertEqual(0,self.user_suit.inventory.get_inventory_size())
 
     def test_discard_hand(self):
         self.user_suit.draw_hand()

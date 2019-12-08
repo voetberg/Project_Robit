@@ -1,0 +1,20 @@
+{
+  "trash": {
+    "name": "trash",
+    "description": "It's Trash!",
+    "action_message": "Nothing happened."
+
+  },
+  "trash1": {
+    "name": "trash",
+    "description": "It's Trash!",
+    "action_message": "Nothing happened."
+
+  },
+  "trash2": {
+    "name": "trash",
+    "description": "It's Trash!",
+    "action_message": "Nothing happened."
+
+  }
+}

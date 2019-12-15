@@ -9,7 +9,7 @@ class Inventory:
     def get_item_names(self):
         item_name_list = []
         for item in self.inventory:
-            item_object = Items(item)
+            item_object = Items(item).item
             item_name_list.append(item_object.name)
         return item_name_list
 
@@ -29,14 +29,15 @@ class Inventory:
     def get_item_descriptions(self):
         item_description_list = []
         for item in self.inventory:
-            item_object = Items(item)
+            item_object = Items(item).item
             item_description_list.append(item_object.description)
         return item_description_list
 
     def get_item_stats(self):
+        #TODO Write out stat list or else ax this
         item_stat_list = []
         for item in self.inventory:
-            item_object = Items(item)
+            item_object = Items(item).item
             item_stat_list.append({
 
             })
@@ -45,7 +46,7 @@ class Inventory:
 class Items(Card):
     def __init__(self,item):
         ##TODO Treat this as a card
-        #You know. Right. 
+        #You know. Right.
         all_items = ResourceAccessor(resource="Items").resource
         item_object = all_items[item]
-        self.item = self.Card(item_object)
+        self.item = Card(item_object)

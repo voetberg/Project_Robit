@@ -2,6 +2,7 @@
   "cards": {
     "stars": {
       "base": {
+        "name": "Placeholder",
         "description": "Can I call this an easter egg",
         "attack": 0,
         "heal": 0,

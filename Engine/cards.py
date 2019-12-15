@@ -15,6 +15,7 @@ class Cards:
 
 class Card:
     def __init__(self,card):
+        self.name = card["name"]
         self.description = card["description"]
         self.action_message = card["action_message"]
         self.attack = card['attack']

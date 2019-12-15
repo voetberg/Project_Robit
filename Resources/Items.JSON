@@ -2,19 +2,32 @@
   "trash": {
     "name": "trash",
     "description": "It's Trash!",
-    "action_message": "Nothing happened."
+    "action_message": "Nothing happened.",
+    "attack": 0,
+    "heal": 0,
+    "defense_buff": 1,
+    "attack_buff": 1
+
 
   },
   "trash1": {
     "name": "trash",
     "description": "It's Trash!",
-    "action_message": "Nothing happened."
+    "action_message": "Nothing happened.",
+    "attack": 0,
+    "heal": 0,
+    "defense_buff": 1,
+    "attack_buff": 1
 
   },
   "trash2": {
     "name": "trash",
     "description": "It's Trash!",
-    "action_message": "Nothing happened."
+    "action_message": "Nothing happened.",
+    "attack": 0,
+    "heal": 0,
+    "defense_buff": 1,
+    "attack_buff": 1
 
   }
 }

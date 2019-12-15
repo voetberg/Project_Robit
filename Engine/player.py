@@ -1,12 +1,13 @@
 ## Class for a player
     ## Holds the parameters a player can have
+from project_robit.Engine.inventory_system import Inventory
+from project_robit.Engine.suits import Suits
 
 class Player:
-    def __init__(self, money=0, suits={}, position=(0,0,0), inventory={}):
+    def __init__(self, money=0, suits=Suits(area="Area0",character="Deuce"), position=(0,0,0), inventory=Inventory()):
         self.money = money
         self.suits = suits
         self.position = position
-        #TODO Change so that it uses the inventory class
         self.inventory = inventory
 
     def use_money(self, money_change):
@@ -19,9 +20,9 @@ class Player:
 
     def access_inventory(self,item,action):
         if action == "add":
-            self.inventory[item.key] = item
+            self.inventory.add_item(item)
         if action == "remove":
-            self.inventory.pop(item.key)
+            self.inventory.remove_item(item)
 
     def save(self):
         pass

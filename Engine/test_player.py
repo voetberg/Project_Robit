@@ -1,5 +1,6 @@
 from unittest import TestCase
 from project_robit.Engine.player import Player
+from project_robit.Engine.inventory_system import Inventory
 
 class TestPlayer(TestCase):
     def setUp(self):
@@ -18,13 +19,13 @@ class TestPlayer(TestCase):
         self.assertEqual(5,self.joker.money)
 
     def test_gain_inventory_item(self):
-        expected = {}
-        self.joker.access_inventory("placeholder_item", action='add')
+        expected = Inventory().add_item("trash")
+        self.joker.access_inventory("trash", action='add')
         self.assertEqual(expected,self.joker.inventory)
 
     def test_loose_inventory_item(self):
         expected = {}
-        self.joker.access_inventory("removed_item", action='remove')
+        self.joker.access_inventory("trash", action='remove')
         self.assertEqual(expected,self.joker.inventory)
 
     def test_loose_item_not_in_inventory(self):

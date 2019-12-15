@@ -1,5 +1,6 @@
 from unittest import TestCase
 from project_robit.Engine.suits import Suits
+from project_robit.Engine.cards import Card
 
 class TestSuits(TestCase):
     def setUp(self):
@@ -16,8 +17,8 @@ class TestSuits(TestCase):
 
     def test_use_card(self):
         self.user_suit.draw_hand()
-        card_to_use = self.user_suit.hand[0]
-        expected_enemy_hp = self.enemy_suit.hp - card_to_use["damage"]
+        card_to_use = Card(self.user_suit.hand["base"])
+        expected_enemy_hp = self.enemy_suit.hp - card_to_use.attack
         self.user_suit.use_card(card=card_to_use, target=self.enemy_suit)
         self.assertEqual(expected_enemy_hp, self.enemy_suit.hp)
 

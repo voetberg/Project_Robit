@@ -1,2 +1,5 @@
 ## Update 2/5:
     I scrapped it all it was all pretty useless
+
+    Combining with a visual-novel ese project I've had in the works for a while
+        Keeping it more story based, but with the actual game engine
